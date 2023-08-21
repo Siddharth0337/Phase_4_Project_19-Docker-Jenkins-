@@ -24,7 +24,10 @@ pipeline {
             steps {
                 script{
                 // Use the project-local Angular CLI executable
-                def angularCliPath = "${env.WORKSPACE}/node_modules/.bin/ng"
+                def angularCliPath = "${env.WORKSPACE}/node_modules/@angular/cli/bin/ng"
+
+                
+
                 
                 // Display npm and Node.js versions for debugging
                 sh "npm --version"
@@ -34,7 +37,7 @@ pipeline {
                 sh "${angularCliPath} version"
                 
                 // Install the required version of Angular CLI
-                sh "npm install -g @angular/cli@13.0.4"
+                sh "npm install  @angular/cli@13.0.4"
                 
     
                 // Build using the project-local Angular CLI

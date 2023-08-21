@@ -23,7 +23,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Run build to create the dist directory
-                sh "npm install -g @angular/cli@13.0.4"
+                sh "npm install -g @angular/cli@13.0.4 --no-cache"
                 sh "ng build"
                 echo 'Build Stage Finished'
             }

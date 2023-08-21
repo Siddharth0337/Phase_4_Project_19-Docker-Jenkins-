@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { combineLatest, Observable } from 'rxjs';
@@ -24,7 +24,7 @@ export class ProductsComponent implements OnInit {
   updation: boolean = false;
   loader: boolean = false;
 
-  productForm: FormGroup = new FormGroup({});
+  productForm: UntypedFormGroup = new UntypedFormGroup({});
 
   productModel: Products | undefined;
 
@@ -34,7 +34,7 @@ export class ProductsComponent implements OnInit {
   // public categoryObservable: Observable<any[]> = new Observable();
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private db: DbService,
     private aws: AwsService,
     private httpClient: HttpClient,

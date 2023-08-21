@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
@@ -19,13 +19,13 @@ export class CategoriesComponent implements OnInit {
   categories: Category[] = [];
 
   prodCategoryBool: boolean = true;
-  productCategoryForm: FormGroup = new FormGroup({});
+  productCategoryForm: UntypedFormGroup = new UntypedFormGroup({});
   tempFile: any;
   loader: boolean = false;
   updateBool: boolean = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private db: DbService,
     private httpClient: HttpClient,
     private modalService: NgbModal,

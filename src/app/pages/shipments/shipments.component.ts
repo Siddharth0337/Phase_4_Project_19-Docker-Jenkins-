@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { BaseUrls } from 'src/app/base-urls';
@@ -15,7 +15,7 @@ import { DbService, Response } from 'src/app/services/db.service';
 export class ShipmentsComponent implements OnInit {
 
   loader: boolean = false;
-  shipmentForm: FormGroup | any;
+  shipmentForm: UntypedFormGroup | any;
 
   shipments: Shipments[] = [];
   shipmentStatusIdx: number = 0;
@@ -25,7 +25,7 @@ export class ShipmentsComponent implements OnInit {
   ];
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public db: DbService,
     private http: HttpClient,
     private modalService: NgbModal,

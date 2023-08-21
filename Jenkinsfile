@@ -20,21 +20,21 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Update Angular CLI and Build') {
             steps {
                 script {
                     // Display npm and Node.js versions for debugging
                     sh "npm --version"
                     sh "node --version"
                     
+                    // Update Angular CLI
+                    sh "npm install -g @angular/cli@14.0.1"
+                    
                     // Print the contents of the ng binary directory for debugging
                     sh "ls ${env.WORKSPACE}/node_modules/@angular/cli/bin"
                     
                     // Use npm run to execute the local Angular CLI
-                    sh "npm install -g @angular/cli@13.0.1"
-                    sh "ng update @angular/core@14 @angular/cli@14"
-
-                    sh "npm run build"
+                    sh "npm run ng build"
                 }
                 echo 'Build Stage Finished'
             }

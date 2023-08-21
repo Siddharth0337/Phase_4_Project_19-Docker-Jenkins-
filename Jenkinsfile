@@ -36,10 +36,7 @@ pipeline {
                 // Install the required version of Angular CLI
                 sh "npm install -g @angular/cli@13.0.4"
                 
-                // Display npm list and outdated packages for debugging
-                sh "npm list"
-                sh "npm outdated"
-                
+    
                 // Build using the project-local Angular CLI
                 sh "${angularCliPath} build"
                 

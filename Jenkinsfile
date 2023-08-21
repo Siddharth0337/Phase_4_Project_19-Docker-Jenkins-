@@ -22,30 +22,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                script{
-                // Use the project-local Angular CLI executable
-                def angularCliPath = "${env.WORKSPACE}/node_modules/@angular/cli/bin/ng"
-
-                
-
-                
-                // Display npm and Node.js versions for debugging
-                sh "npm --version"
-                sh "node --version"
-                
-                // Display ng version for debugging
-                sh "${angularCliPath} version"
-                
-                // Install the required version of Angular CLI
-                sh "npm install  @angular/cli@13.0.4"
-                
-    
-                // Build using the project-local Angular CLI
-                sh "${angularCliPath} build"
-                
-                echo 'Build Stage Finished'
-
+                script {
+                    // Display npm and Node.js versions for debugging
+                    sh "npm --version"
+                    sh "node --version"
+                    
+                    // Print the contents of the ng binary directory for debugging
+                    sh "ls ${env.WORKSPACE}/node_modules/@angular/cli/bin"
+                    
+                    // Use npm run to execute the local Angular CLI
+                    sh "npm run ng version"
+                    sh "npm run ng build"
                 }
+                echo 'Build Stage Finished'
             }
         }
     }

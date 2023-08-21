@@ -31,7 +31,7 @@ pipeline {
                     sh "ls ${env.WORKSPACE}/node_modules/@angular/cli/bin"
                     
                     // Use npm run to execute the local Angular CLI
-                    sh "npm run ng version"
+                    sh "npm install -g @angular/cli@13.0.1"
                     sh "npm run ng build"
                 }
                 echo 'Build Stage Finished'

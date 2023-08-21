@@ -22,6 +22,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                script{
                 // Use the project-local Angular CLI executable
                 def angularCliPath = "${env.WORKSPACE}/node_modules/.bin/ng"
                 
@@ -43,6 +44,8 @@ pipeline {
                 sh "${angularCliPath} build"
                 
                 echo 'Build Stage Finished'
+
+                }
             }
         }
     }

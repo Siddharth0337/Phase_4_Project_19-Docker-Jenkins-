@@ -32,7 +32,7 @@ pipeline {
                     
                     // Use npm run to execute the local Angular CLI
                     sh "npm install -g @angular/cli@13.0.1"
-                    sh "npm run ng build"
+                    sh "npm run build"
                 }
                 echo 'Build Stage Finished'
             }

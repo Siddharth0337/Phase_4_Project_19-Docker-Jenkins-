@@ -3,8 +3,7 @@ pipeline {
     tools {
         // Specify the name of the Git installation configured in Jenkins
         git 'MyGitInstallation'
-    }
-    tools {
+   
         // Specify the name of the Node.js installation
         nodejs 'NodeJS 14.20.1'
     }

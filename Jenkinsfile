@@ -4,6 +4,11 @@ pipeline {
         // Specify the name of the Git installation configured in Jenkins
         git 'MyGitInstallation'
     }
+    tools {
+        // Specify the name of the Node.js installation
+        nodejs 'NodeJS 14.20.1'
+    }
+
     stages {
         stage('Source') {
             steps {
@@ -19,7 +24,8 @@ pipeline {
         stage('Build') {
             steps {
                 // Run build to create the dist directory
-                sh "npm run build"
+                sh "npm install -g @angular/cli@13.0.4"
+                sh "ng build"
                 echo 'Build Stage Finished'
             }
         }
